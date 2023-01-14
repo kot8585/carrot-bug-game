@@ -1,0 +1,88 @@
+body{
+  background-color: black;
+}
+
+.game {
+  width: 700px;
+  height: 400px;
+  background-image: url("./img/background.png");
+  background-size: cover;
+  border-radius: 20px;
+  margin: 30px auto;
+  text-align: center;
+  padding: 5px;
+}
+
+.game button {
+  background-color: bisque;
+  font-size: large;
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+  border: 3px solid black;
+} 
+
+.play-time {
+  margin: 7px auto;
+  background-color: whitesmoke;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  border: 3px solid black;
+  border-radius: 7px;
+  font-size: large;
+}
+
+.carrot-count {
+  margin: 7px auto;
+  background-color: lightsalmon;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  font-size: xx-large;
+  color: white;
+  border: 3px solid black;
+}
+
+.play {
+  margin: auto;
+  width: 90%;
+  height: 185px;
+  position: relative;
+  top: 70px;
+  border-radius: 20px;
+}
+
+.play .carrot-img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
+.play .bug-img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+}
+
+.result {
+  background-color: black;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:40%;
+  height: 40%;
+  border-radius: 20px;
+  vertical-align: center;
+  padding-top: 5px;
+}
+
+.result-content {
+  color: white;
+  font-size: x-large;
+}
+
+
+

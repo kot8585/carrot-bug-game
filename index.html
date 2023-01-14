@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/8cd0f5a6fc.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <section class="game">
+    <button class="play-btn">
+      <i class="fa-solid fa-play"></i>
+    </button>
+    <!-- <button class="stop-btn">
+      <i class="fa-solid fa-stop"></i>
+    </button> -->
+    <div class="play-time">0:00</div>
+    <div class="carrot-count">7</div>
+    <div class="play">
+      <!-- 당근, 버그 이미지 10개 7개 만들기 -->
+      <img class="carrot-img" src="./img/carrot.png" alt="당근" style="top: 10px; left: 10px;">
+      <img class="carrot-img" src="./img/carrot.png" alt="당근">
+      <img class="carrot-img" src="./img/carrot.png" alt="당근">
+      <img class="bug-img" src="./img/bug.png" alt="무당벌레">
+      <img class="bug-img" src="./img/bug.png" alt="무당벌레">
+      <img class="bug-img" src="./img/bug.png" alt="무당벌레">
+
+      <div class="result">
+        <button class="replay-btn">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+        <div class="result-content">YOU LOST</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

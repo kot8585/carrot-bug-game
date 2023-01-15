@@ -23,6 +23,7 @@ body{
 } 
 
 .play-time {
+  display: block;
   margin: 7px auto;
   background-color: whitesmoke;
   width: 100px;
@@ -46,7 +47,7 @@ body{
 
 .play {
   margin: auto;
-  width: 90%;
+  width: 95%;
   height: 185px;
   position: relative;
   top: 70px;
@@ -66,23 +67,29 @@ body{
 }
 
 .result {
-  background-color: black;
   position: absolute;
+  display: none;
   background: rgba(0, 0, 0, 0.5);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width:40%;
-  height: 40%;
+  top: 300px;
+  left: 260px;
+  width: 250px;
+  height: 80px;
   border-radius: 20px;
-  vertical-align: center;
-  padding-top: 5px;
+  padding-top: 20px;
 }
 
 .result-content {
   color: white;
   font-size: x-large;
+  padding-top: 5px;
 }
 
+.click-able {
+  cursor: pointer;
+  pointer-events: auto;
+}
 
+.click-disable {
+  pointer-events: none;
+}
 

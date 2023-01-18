@@ -1,4 +1,4 @@
-'use strict'
+import { Item } from './modules/item.js';
 
 const game = document.querySelector('.game');
 
@@ -28,9 +28,8 @@ playBtn.addEventListener('click', (e) => {
       stop('REPLAY ?');
     } else {
       playGame();
-    }
-    
-    started != started;
+    }    
+    started = !started;
 })
 
 replayBtn.addEventListener('click', (e) => {
@@ -82,23 +81,13 @@ function updateTimerText(time) {
 }
 
 function addItem(count, type, src, className) {
-    for (let i = 0; i < count; i++) {
-    const maxEighty = Math.ceil(Math.random() * 8 * 10);
-    const maxNinety = Math.ceil(Math.random() * 9 * 10);
-
-    const itemImg = document.createElement("img");
-    itemImg.setAttribute('src', src);
-    itemImg.style.top = `${maxEighty}%`;
-    itemImg.style.left = `${maxNinety}%`;
-    itemImg.setAttribute('alt', type);
-    itemImg.setAttribute('class', className);
-
-    play.append(itemImg);
+    for (let i = 0; i < count; i++) { 
+    const item = new Item(count, type, src, className);
+    item.createItemElement();
   }
 }
 
 play.addEventListener('click', (e) => {
-  console.log('hello');
   const targetName = e.target.className;
 
   if(targetName === 'carrot-img'){    

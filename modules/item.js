@@ -8,8 +8,7 @@ function getRandomHeight() {
   }
 
 class Item {
-  constructor(count, type, src, className) {
-    this.count = count;
+  constructor(type, src, className) {
     this.type = type;
     this.src = src;
     this.className = className;

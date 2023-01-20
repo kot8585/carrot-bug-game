@@ -1,6 +1,4 @@
-'use strict'
-const bugAudio = new Audio('./sound/bug_pull.mp3');
-const carrotAudio = new Audio('./sound/carrot_pull.mp3');
+import * as sound from './sound.js';
 
 export default class GameField {
   constructor(carrotCount, bugCount) {
@@ -25,11 +23,11 @@ export default class GameField {
     const target = e.target;
 
     if(target.matches('.carrot-img')){  
-      playSound(carrotAudio);
+      sound.playCarrot();
       target.remove();
       this.onItemClick && this.onItemClick('carrot-img');
     } else if(target.matches('.bug-img')){
-      playSound(bugAudio);
+      sound.playBug();
       this.onItemClick && this.onItemClick('bug-img');
     }
   }
@@ -54,9 +52,4 @@ function getRandomWidth() {
 
 function getRandomHeight() {
    return Math.ceil(Math.random() * 8 * 10); 
-}
-
-function playSound(sound) {
-  sound.currentTime=0;
-  sound.play();
 }

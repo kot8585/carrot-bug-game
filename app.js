@@ -1,5 +1,6 @@
 import { PopUp } from './modules/popUp.js';
 import  GameField  from './modules/gamefield.js';
+import * as sound from './modules/sound.js';
 
 const game = document.querySelector('.game');
 
@@ -14,10 +15,6 @@ const BUG_COUNT = 7;
 const TIME_DURATION = 10;
 let intervalID;
 let started = false;
-
-const bgAudio = new Audio('./sound/bg.mp3');
-const gameWinAudio = new Audio('./sound/game_win.mp3');
-const alert = new Audio('./sound/alert.wav');
 
 const gameFinishBanner = new PopUp();
 gameFinishBanner.setClickListener(playGame);
@@ -41,7 +38,7 @@ function onItemClick(item) {
   if(item === 'carrot-img'){    
     --carrotCount.textContent;
     if(parseInt(carrotCount.textContent) === 0){
-      playSound(gameWinAudio);
+      sound.playWin();
       stop('YOU WON👏');
     }
   } else if(item === 'bug-img') {
@@ -53,14 +50,14 @@ function playGame() {
   started = true;
   initGame();
   showStopButton();
-  playSound(bgAudio);
+  sound.playBackground();
   gameField.init();
   startTimer();
 }
 
 function stop(text) {
   started = false;
-  bgAudio.pause();
+  sound.stopBackground();
   playBtn.classList.remove('playing');
   playBtn.style.visibility = 'hidden';
   gameFinishBanner.showWithText(text);
@@ -73,11 +70,6 @@ function initGame() {
   gameFinishBanner.hide();
   updateTimerText(TIME_DURATION);
   carrotCount.textContent = CARROT_COUNT;
-}
-
-function playSound(sound) {
-  sound.currentTime=0;
-  sound.play();
 }
 
 function showStopButton() {

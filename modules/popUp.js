@@ -4,6 +4,7 @@ class PopUp {
     this.popUpContent = document.querySelector('.pop-up__content');
     this.replayBtn = document.querySelector('.replay-btn');
     this.replayBtn.addEventListener('click', (e) => {
+      this.hide();
       this.onClick && this.onClick();
     })
   }

@@ -1,5 +1,5 @@
 import { PopUp } from './modules/popUp.js';
-import { GameBuilder } from './modules/game.js';
+import { GameBuilder, Reason } from './modules/game.js';
 
 const CARROT_COUNT = 10;
 const BUG_COUNT = 7;
@@ -15,18 +15,18 @@ game.setGameStopListener(onGameStop);
 const gameFinishBanner = new PopUp();
 gameFinishBanner.setClickListener(game.play.bind(game));
 
-function onGameStop(text) {
-  switch(text) {
-    case 'cancel':
+function onGameStop(reason) {
+  switch(reason) {
+    case Reason.cancel:
       gameFinishBanner.showWithText('REPLAY❓');
       break;
-    case 'timeOver':
+    case Reason.timeover:
       gameFinishBanner.showWithText('TIME OVER😡');
       break;
-    case 'lose':
+    case Reason.lose:
       gameFinishBanner.showWithText('YOU LOST🤢');
       break;
-    case 'win':
+    case Reason.win:
       gameFinishBanner.showWithText('YOU WON👏');
       break;
   }

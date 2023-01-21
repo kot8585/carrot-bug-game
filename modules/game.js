@@ -1,6 +1,13 @@
 import  GameField  from './gamefield.js';
 import * as sound from './sound.js';
 
+export const Reason = Object.freeze({
+  cancel: 'cancel',
+  timeover: 'timeover',
+  lose: 'lose',
+  win : 'win'
+});
+
 export class GameBuilder {
   withCarrotCount(carrotCount) {
     this.carrotCount = carrotCount;
@@ -31,7 +38,7 @@ export default class Game {
     this.playBtn = document.querySelector('.play-btn');
     this.playBtn.addEventListener('click', (e) => {
       if(this.started){
-        this.stop('cancel');
+        this.stop(Reason.cancel);
       } else {
         this.play();
       }    
@@ -86,7 +93,7 @@ export default class Game {
     this.intervalID = setInterval(() => {
       if (remainingTimeSec <= 0) {
         sound.playAlert();
-        return this.stop('timeOver');
+        return this.stop(Reason.timeover);
       } 
       this.updateTimerText(--remainingTimeSec);
     }, 1000);
@@ -108,10 +115,10 @@ export default class Game {
       --this.score.textContent;
       if(parseInt(this.score.textContent) === 0){
         sound.playWin();
-        this.stop('win');
+        this.stop(Reason.win);
       }
     } else if(item === 'bug-img') {
-      this.stop('lose');
+      this.stop(Reason.lose);
     }
   } 
 }

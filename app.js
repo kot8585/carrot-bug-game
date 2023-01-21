@@ -1,11 +1,15 @@
 import { PopUp } from './modules/popUp.js';
-import Game from './modules/game.js';
+import { GameBuilder } from './modules/game.js';
 
 const CARROT_COUNT = 10;
 const BUG_COUNT = 7;
 const TIME_DURATION = 10;
 
-const game = new Game(CARROT_COUNT, BUG_COUNT, TIME_DURATION);
+const game = new GameBuilder()
+  .withCarrotCount(CARROT_COUNT)
+  .withBugCount(BUG_COUNT)
+  .withTimeDuration(TIME_DURATION)
+  .build();
 game.setGameStopListener(onGameStop);
 
 const gameFinishBanner = new PopUp();
